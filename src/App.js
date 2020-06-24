@@ -11,6 +11,14 @@ import AllGroups from './Contents/groups/all/AllGroups';
 import Equipment  from './Contents/equipments/Equipment';
 import Projects from './Contents/projects/Projects';
 import Groups from './Contents/groups/Groups2';
+import AdminSignIn from './Contents/admin/AdminSignIn';
+import CreateUser from './Contents/admin/CreateUser';
+import CreateProject from './Contents/admin/CreateProject';
+import CreateNotice from './Contents/admin/CreateNotice';
+import CreateEvent from './Contents/admin/CreateEvent';
+import CreateAchievement from './Contents/admin/CreateAchievement';
+import CreateAward from './Contents/admin/CreateAward';
+import AdminHome from './Contents/admin/AdminHome';
 
 class App extends React.Component {
 
@@ -19,7 +27,7 @@ class App extends React.Component {
       <div className="App">
         <BrowserRouter>
           <Switch>
-            <Route path="/Home" component={Home} />
+            <Route exact path="/home" component={Home} />
             <Route exact path="/about" component={About} />
             <Route exact path="/notices" component={Notices} />
             <Route exact path="/achievements" component={Achievements} />
@@ -46,6 +54,15 @@ class App extends React.Component {
             <Route exact path="/groups/acm" component={Groups} />
             <Route exact path="/groups/cec" component={Groups} />
             <Route exact path="/groups/miess" component={Groups} />
+            <Route exact path="/admin" component={AdminSignIn} />
+            <Route exact path="/admin/home" component={AdminHome} />
+            <Route exact path="/admin/create/user" component={CreateUser} />
+            <Route exact path="/admin/create/project" component={CreateProject} />
+            <Route exact path="/admin/create/notice" component={CreateNotice} />
+            <Route exact path="/admin/create/event" component={CreateEvent} />
+            <Route exact path="/admin/create/achievement" component={CreateAchievement} />
+            <Route exact path="/admin/create/award" component={CreateAward} />
+            <Route path="/home" component={Home} />
             <Redirect to="/home"/>
           </Switch>
         </BrowserRouter>
