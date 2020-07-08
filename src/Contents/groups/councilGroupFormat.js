@@ -234,7 +234,7 @@ export const councilGroupFormat = [
 			personal: 'https://designstudio.cc/portfolio',
 			github: '',
 		},
-		image: '/images/designstudio.png',
+		image: '/images/ds.jpg',
 		projects :[ 
 		[{
 			projectName : ' Cognizance Branding',

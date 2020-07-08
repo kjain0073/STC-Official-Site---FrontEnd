@@ -142,14 +142,14 @@ h1 { font-size: 3.666rem; letter-spacing: 0.17064rem; }
 
 .h3--small { font-size: 1.3298rem; }
 
-@font-face { font-family: Gilroy-Black; src: url("/fonts/Gilroy-Black.ttf") format("truetype"); }
-@font-face { font-family: Gilroy-BlackItalic; src: url("/fonts/Gilroy-BlackItalic.ttf") format("truetype"); }
-@font-face { font-family: Gilroy-Bold; src: url("/fonts/Gilroy-Bold.ttf") format("truetype"); }
-@font-face { font-family: Gilroy-BoldItalic; src: url("/fonts/Gilroy-BoldItalic.ttf") format("truetype"); }
-@font-face { font-family: Gilroy-ExtraBold; src: url("/fonts/Gilroy-ExtraBold.ttf") format("truetype"); }
-@font-face { font-family: Gilroy-ExtraBoldItalic; src: url("/fonts/Gilroy-ExtraBoldItalic.ttf") format("truetype"); }
-@font-face { font-family: Gilory-Heavy; src: url("/fonts/Gilroy-Heavy.ttf") format("truetype"); }
-@font-face { font-family: Gilroy-Light; src: url("/fonts/Gilroy-Light.otf") format("truetype"); }
+@font-face { font-family: Gilroy-Black; src: url("fonts/Gilroy-Black.ttf") format("truetype"); }
+@font-face { font-family: Gilroy-BlackItalic; src: url("fonts/Gilroy-BlackItalic.ttf") format("truetype"); }
+@font-face { font-family: Gilroy-Bold; src: url("fonts/Gilroy-Bold.ttf") format("truetype"); }
+@font-face { font-family: Gilroy-BoldItalic; src: url("fonts/Gilroy-BoldItalic.ttf") format("truetype"); }
+@font-face { font-family: Gilroy-ExtraBold; src: url("fonts/Gilroy-ExtraBold.ttf") format("truetype"); }
+@font-face { font-family: Gilroy-ExtraBoldItalic; src: url("fonts/Gilroy-ExtraBoldItalic.ttf") format("truetype"); }
+@font-face { font-family: Gilory-Heavy; src: url("fonts/Gilroy-Heavy.ttf") format("truetype"); }
+@font-face { font-family: Gilroy-Light; src: url("fonts/Gilroy-Light.otf") format("truetype"); }
 html { font-size: 8.22px; }
 
 @media only screen and (min-width: 768px) { html { font-size: 0.732vw; } }
@@ -321,7 +321,7 @@ a.project__link:link, a.project__link:visited { font-family: 'Montserrat', sans-
 .arrow--right { width: 4.9769rem; height: 4.9769rem; background-color: #fddb5e; position: absolute; right: 0; bottom: 22.2496rem; font-size: 2.5rem; color: #1e1e1e; }
 .arrow--right i { transition: 0.5s ease; }
 
-.main-bg { background-image: url("/images/main.png"); background-position: center; background-repeat: no-repeat; background-size: cover; height: 100%; width: 100%; position: fixed; filter: brightness(85%); transition: 0.5s ease; }
+.main-bg { background-image: url("main.png"); background-position: center; background-repeat: no-repeat; background-size: cover; height: 100%; width: 100%; position: fixed; filter: brightness(85%); transition: 0.5s ease; }
 
 .main-bg--blur { filter: blur(2.5px) brightness(85%); }
 
