@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/STC-Official-Site---FrontEnd/static/css/main.3a736415.chunk.css",
-    "main.js": "/STC-Official-Site---FrontEnd/static/js/main.bd20439c.chunk.js",
-    "main.js.map": "/STC-Official-Site---FrontEnd/static/js/main.bd20439c.chunk.js.map",
+    "main.css": "/STC-Official-Site---FrontEnd/static/css/main.28dccac6.chunk.css",
+    "main.js": "/STC-Official-Site---FrontEnd/static/js/main.3d9fc728.chunk.js",
+    "main.js.map": "/STC-Official-Site---FrontEnd/static/js/main.3d9fc728.chunk.js.map",
     "runtime-main.js": "/STC-Official-Site---FrontEnd/static/js/runtime-main.88d4d992.js",
     "runtime-main.js.map": "/STC-Official-Site---FrontEnd/static/js/runtime-main.88d4d992.js.map",
     "static/css/2.459abc08.chunk.css": "/STC-Official-Site---FrontEnd/static/css/2.459abc08.chunk.css",
     "static/js/2.01d030de.chunk.js": "/STC-Official-Site---FrontEnd/static/js/2.01d030de.chunk.js",
     "static/js/2.01d030de.chunk.js.map": "/STC-Official-Site---FrontEnd/static/js/2.01d030de.chunk.js.map",
     "index.html": "/STC-Official-Site---FrontEnd/index.html",
-    "precache-manifest.d6e19c12997e27ec596f2226afabfaac.js": "/STC-Official-Site---FrontEnd/precache-manifest.d6e19c12997e27ec596f2226afabfaac.js",
+    "precache-manifest.35ed48f62b1a615eaf140cacbd68ed0a.js": "/STC-Official-Site---FrontEnd/precache-manifest.35ed48f62b1a615eaf140cacbd68ed0a.js",
     "service-worker.js": "/STC-Official-Site---FrontEnd/service-worker.js",
     "static/css/2.459abc08.chunk.css.map": "/STC-Official-Site---FrontEnd/static/css/2.459abc08.chunk.css.map",
-    "static/css/main.3a736415.chunk.css.map": "/STC-Official-Site---FrontEnd/static/css/main.3a736415.chunk.css.map",
+    "static/css/main.28dccac6.chunk.css.map": "/STC-Official-Site---FrontEnd/static/css/main.28dccac6.chunk.css.map",
     "static/js/2.01d030de.chunk.js.LICENSE.txt": "/STC-Official-Site---FrontEnd/static/js/2.01d030de.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/STC-Official-Site---FrontEnd/static/media/main.14879b6f.png",
     "static/media/Notice.jpg": "/STC-Official-Site---FrontEnd/static/media/Notice.2224dfbe.jpg",
     "static/media/font-awesome.min.css": "/STC-Official-Site---FrontEnd/static/media/fontawesome-webfont.fee66e71.woff"
   },
@@ -21,7 +22,7 @@
     "static/js/runtime-main.88d4d992.js",
     "static/css/2.459abc08.chunk.css",
     "static/js/2.01d030de.chunk.js",
-    "static/css/main.3a736415.chunk.css",
-    "static/js/main.bd20439c.chunk.js"
+    "static/css/main.28dccac6.chunk.css",
+    "static/js/main.3d9fc728.chunk.js"
   ]
 }
