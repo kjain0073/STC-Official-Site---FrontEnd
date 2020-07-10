@@ -11,7 +11,7 @@ import AllGroups from './Contents/groups/all/AllGroups';
 import Equipment  from './Contents/equipments/Equipment';
 import Projects from './Contents/projects/Projects';
 import Groups from './Contents/groups/Groups2';
-import AdminSignIn from './Contents/admin/AdminSignIn';
+/*import AdminSignIn from './Contents/admin/AdminSignIn';*/
 import CreateUser from './Contents/admin/CreateUser';
 import CreateProject from './Contents/admin/CreateProject';
 import CreateNotice from './Contents/admin/CreateNotice';
@@ -54,7 +54,7 @@ class App extends React.Component {
             <Route exact path="/groups/acm" component={Groups} />
             <Route exact path="/groups/cec" component={Groups} />
             <Route exact path="/groups/miess" component={Groups} />
-            <Route exact path="/admin" component={AdminSignIn} />
+           {/* <Route exact path="/admin" component={AdminSignIn} />*/}
             <Route exact path="/admin/home" component={AdminHome} />
             <Route exact path="/admin/create/user" component={CreateUser} />
             <Route exact path="/admin/create/project" component={CreateProject} />

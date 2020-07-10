@@ -16,7 +16,7 @@ class Header extends React.Component{
 				      <Link to="/calendar" className="nav__element display--flex vertical-align--center horizontal-align--center" id="event-calendar"> <h3> EVENT CALENDAR </h3> </Link>
 				      <Link to="/groups/all/" className="nav__element display--flex vertical-align--center horizontal-align--center" id="groups"> <h3> GROUPS </h3> </Link>
 				      <Link to="/equipments" className="nav__element display--flex vertical-align--center horizontal-align--center" id="equipments"> <h3> EQUIPMENT </h3> </Link>
-				      <Link to="/admin" className="nav__element display--flex vertical-align--center horizontal-align--center" id="admin"> <h3> ADMIN </h3> </Link>
+				      <Link to="/admin/home" className="nav__element display--flex vertical-align--center horizontal-align--center" id="admin"> <h3> ADMIN </h3> </Link>
 				  </nav>
 			</div>
 			);

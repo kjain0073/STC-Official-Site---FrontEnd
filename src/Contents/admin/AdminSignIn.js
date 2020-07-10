@@ -90,7 +90,7 @@ componentWillUnmount(){
                 <span className='error'>{errors.password}</span>}
             </div>
             <div className='info'>
-              <small>Password must be eight characters in length.</small>
+              <p>*Password must be eight characters in length.</p>
             </div>
             <div className='submit'>
              <Link to ="/admin/home">

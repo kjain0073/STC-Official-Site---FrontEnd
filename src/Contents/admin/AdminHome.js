@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { Card, CardBody, CardTitle, Row, BreadcrumbItem, Breadcrumb, Button, CardText } from 'reactstrap'
 import { Link } from 'react-router-dom';
+import AdminSignIn from './AdminSignIn2';
+import 'tachyons';
 
 class AdminHome extends Component {
     
     constructor(props){
         super(props);
         this.state = {
+            isSigned: false,
+            route: 'SignIn',
             cardItems : [
                 {   
                     id: 0,
@@ -48,9 +52,23 @@ class AdminHome extends Component {
                     link1: ['Add Event','/admin/create/event'],
                     link2: ['Calender','/calendar']
                 },
-            ]
+            ],
+
         };
     }
+
+    onRouteChange = (route) => {
+        if(route === 'signout')
+        {
+          this.setState({isSignedIn:false})
+        }
+        else if (route === 'home')
+        {
+          this.setState({isSignedIn: true})
+        }
+        this.setState({route: route});
+    }
+
     componentDidMount(){
         document.head.innerHTML+= '<link id ="bootstrap " href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">' ;
     }
@@ -61,57 +79,71 @@ class AdminHome extends Component {
     render() { 
         return (
             <div className="Adminhome">
-                <div className="container">
-                    <Row>
-                        <Breadcrumb className="col-12 col-md-12">
-                            <BreadcrumbItem active>Admin Home</BreadcrumbItem>
-
-                            {/* This will be only visible to gensec */}
-                            <Link to="/admin/create/user" className="ml-auto">
-                                <Button color="outline-primary">Create User</Button>   
-                            </Link>
-                            <Link to="/home" className="ml-auto">
-                                <Button color="outline-primary">Return to main page</Button>   
-                            </Link>
-
-                        </Breadcrumb>
-                        <div className="col-12 col-md-12">
-                            <hr />
-                        </div>
-                    </Row>
-                    <div className="row">
-                        {this.state.cardItems.map((item)=>{
-                            return (
-                                <div key={item.id} className="col-12 col-sm-6 col-md-6 col-lg-4" style={{paddingBlock:"20px"}}>
-                                    <Card>
-                                        <CardBody>
-                                            <CardTitle><h5> {item.title} </h5></CardTitle>
-                                        </CardBody>
-                                        <img width="100%" src={item.img} alt={item.title} />
-                                        <CardBody>
-                                            <div className="row container">
-                                                <CardText> {item.content} </CardText><br />
+                { this.state.route==='home' 
+                    ?<div className="container">
+                                    <Row>
+                                        <Breadcrumb className="col-12 col-md-12">
+                                            <BreadcrumbItem active>Admin Home</BreadcrumbItem>
+                
+                                            {/* This will be only visible to gensec */}
+                                            <div className="ml-auto">
+                                            Welcome,User
+                                            <Link to="/admin/create/user" >
+                                                <Button color="outline-primary">Create User</Button>   
+                                            </Link>
+                                            <Link to="/home">
+                                                <Button color="outline-primary">Return to main page</Button>   
+                                            </Link>                                             
+                                              <Button color="outline-primary" onClick={() => this.onRouteChange('SignIn')} >Sign Out</Button>  
                                             </div>
-                                            <div className="row">
-                                                <div className="col-6 col-sm-6">
-                                                    <Link to={item.link1[1]}>
-                                                        <Button className="btn-block"> {item.link1[0]} </Button>
-                                                    </Link>
+                                            
+                
+                                        </Breadcrumb>
+                                        <div className="col-12 col-md-12">
+                                            <hr />
+                                        </div>
+                                    </Row>
+                                    <div className="row">
+                                        {this.state.cardItems.map((item)=>{
+                                            return (
+                                                <div key={item.id} className="col-12 col-sm-6 col-md-6 col-lg-4" style={{paddingBlock:"20px"}}>
+                                                    <Card>
+                                                        <CardBody>
+                                                            <CardTitle><h5> {item.title} </h5></CardTitle>
+                                                        </CardBody>
+                                                        <img width="100%" src={item.img} alt={item.title} />
+                                                        <CardBody>
+                                                            <div className="row container">
+                                                                <CardText> {item.content} </CardText><br />
+                                                            </div>
+                                                            <div className="row">
+                                                                <div className="col-6 col-sm-6">
+                                                                    <Link to={item.link1[1]}>
+                                                                        <Button className="btn-block"> {item.link1[0]} </Button>
+                                                                    </Link>
+                                                                </div>
+                                                                <div className="col-6 col-sm-6">
+                                                                    <Link to={item.link2[1]}>
+                                                                        <Button className="btn-block"> {item.link2[0]} </Button>
+                                                                    </Link>
+                                                                </div>
+                                                            </div>
+                                                        </CardBody>
+                                                    </Card>
                                                 </div>
-                                                <div className="col-6 col-sm-6">
-                                                    <Link to={item.link2[1]}>
-                                                        <Button className="btn-block"> {item.link2[0]} </Button>
-                                                    </Link>
-                                                </div>
-                                            </div>
-                                        </CardBody>
-                                    </Card>
-                                </div>
-                            );
-                        })}
-                        
-                    </div>
-                </div> 
+                                            );
+                                        })}
+                                        
+                                    </div>
+                                </div> 
+
+                               : (
+                                    this.state.route === 'SignIn'  
+                                   ? <AdminSignIn onRouteChange={this.onRouteChange}/>
+                                   : <div></div>
+                                  ) 
+                                                            
+                            }
             </div>            
         );
     }
