@@ -27,15 +27,25 @@ class AdminSignIn extends React.Component {
 			})
 		})
 		.then(response => {
-				response.json()
-				.then(data => {
+			
+				if(response.status!= 401 && response.status != 400 ){
+					response.json()
+					.then(data => {
+					
 					if(data.user.email) {
 						console.log(data);
 						this.props.onRouteChange('home');
 					}
 				})
-		}).catch(function(err){
-						alert("Invalid Credentials.Please try Again!");
+				}
+
+				else{
+					alert("Invalid Credentials.Please try Again!");
+				}
+				
+				
+		}).catch(function(err){		
+						alert("Something went wrong !!! MAY be you should check your network connection ");
 					});
 	}
 
