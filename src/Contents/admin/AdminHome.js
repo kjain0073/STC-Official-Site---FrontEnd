@@ -9,8 +9,8 @@ class AdminHome extends Component {
     constructor(props){
         super(props);
         this.state = {
-            isSignedIn: false,
-            route: 'signout',
+            isSignedIn: localStorage.getItem('isSignedIn') === 'true' ?  true :false,
+            route: JSON.parse(localStorage.getItem('route')),
             signInEmail: '',
             signInPassword: '',
             cardItems : [
@@ -123,33 +123,12 @@ class AdminHome extends Component {
 
         this.setState({route: route});
         localStorage.setItem('route',JSON.stringify(route));
+        console.log("route is: " +  localStorage.getItem('route'));
     }
 
-    hydrateStateWithLocalStorage() {
-        let loggedState = localStorage.getItem('isSignedIn');
-        let currentRoute = localStorage.getItem('route');
-        let userData = localStorage.getItem('user');
-        console.log(loggedState,currentRoute);
-        console.log(userData);
-        if(loggedState === true) {
-
-            this.setState({
-                isSignedIn: true,
-                route: currentRoute,
-            })
-        }
-        else
-        {
-            this.setState({
-                isSignedIn: false,
-                route: 'signout',
-            })
-        }
-    }
 
     componentDidMount(){
         document.head.innerHTML+= '<link id ="bootstrap " href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">' ;
-        this.hydrateStateWithLocalStorage();        
 
     }
 
