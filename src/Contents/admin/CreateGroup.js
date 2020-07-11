@@ -5,16 +5,50 @@ import { Link } from 'react-router-dom';
 
 
 const required = (val) => val && val.length;
-const maxLength = (len) => (val) => !(val) || (val.length <= len)
-const minLength = (len) => (val) => (val) && (val.length >= len)
-const isNumber = (val) => !isNaN(Number(val));
 const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val)
+const validPass = (val) => /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/i.test(val)
 
-class CreateUser extends Component {
+class CreateGroup extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            password: '',
+            name: ''
+        }
+    }
 
     handleSubmit = (values) => {
         console.log('Current State is: ' + JSON.stringify(values));
-        alert('Current State is: ' + JSON.stringify(values));
+        fetch('http://162.243.168.224:3000/signUp',{
+            method: 'post',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                name: values.name,
+                email: values.email,
+                password: values.password
+            })
+        })
+        .then(response => {
+            
+                if(response.status!== 401 && response.status !== 400 ){
+                  response.json()
+                  .then((data) => {  
+                    if (data.user.email) 
+                        alert("Successfully Added!");
+                })
+                }
+
+                else{
+                    alert("Group Name already exists!");
+                }
+                
+                
+        }).catch(function(err){        
+                        alert("Error! Group Details Not Sent");
+                    });
+        
     }
     componentDidMount(){
         document.head.innerHTML+= '<link id ="bootstrap " href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">' ;
@@ -31,13 +65,13 @@ class CreateUser extends Component {
                     <Row>
                         <Breadcrumb className="col-12 col-md-9">
                             <BreadcrumbItem><Link to="/admin/home">Admin Home</Link></BreadcrumbItem>
-                            <BreadcrumbItem active>Create User</BreadcrumbItem>
+                            <BreadcrumbItem active>Create Group</BreadcrumbItem>
                             <Link to="/admin/home" className="ml-auto">
                                 <Button color="outline-primary">Back</Button>   
                             </Link>
                         </Breadcrumb>
                         <div className="col-12 col-md-9">
-                            <h3>Create User</h3>
+                            <h3>Create Group</h3>
                             <hr />
                         </div>
                     </Row>
@@ -45,34 +79,12 @@ class CreateUser extends Component {
                         <div className="col-12 col-md-9">
                             <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
                                 <Row className="form-group">
-                                    <Label htmlFor=".title" md={2}>Title:</Label>
-                                    <Col md={10}>
-                                        <Control.text model=".title"
-                                            id="title"
-                                            name="title"
-                                            placeholder="Eg., ArIES Secy..."
-                                            className="form-control"
-                                            validators={{
-                                                required
-                                            }} 
-                                        />
-                                        <Errors 
-                                            className="text-danger"
-                                            show="touched"
-                                            model=".title"
-                                            messages={{
-                                                required: 'This is a Required Field!'
-                                            }}
-                                        />
-                                    </Col>
-                                </Row>
-                                <Row className="form-group">
-                                    <Label htmlFor=".name" md={2}>Full Name:</Label>
+                                    <Label htmlFor=".name" md={2}>Group Name:</Label>
                                     <Col md={10}>
                                         <Control.text model=".name"
                                             id="name"
                                             name="name"
-                                            placeholder="Full Name"
+                                            placeholder="Group Name"
                                             className="form-control"
                                             validators={{
                                                 required
@@ -112,26 +124,24 @@ class CreateUser extends Component {
                                 </Row>
 
                                 <Row className="form-group">
-                                    <Label htmlFor=".contact" md={2}>Contact:</Label>
+                                    <Label htmlFor=".password" md={2}>Password:</Label>
                                     <Col md={10}>
-                                        <Control.text model=".contact"
-                                            id="contact"
-                                            name="contact"
-                                            placeholder="Contact No."
+                                        <Control.text model=".password"
+                                            id="password"
+                                            name="password"
+                                            placeholder="Enter Password "
                                             className="form-control"
                                             validators={{
-                                                required, isNumber , minLength: minLength(4), maxLength: maxLength(12)
+                                                required,validPass,
                                             }} 
                                         />
                                         <Errors 
                                             className="text-danger"
                                             show="touched"
-                                            model=".contact"
+                                            model=".password"
                                             messages={{
                                                 required: 'This is a Required Field! ',
-                                                isNumber: 'Not a Number! ',
-                                                minLength: 'Must be >= 4 numbers! ',
-                                                maxLength: 'Must be <= 12 numbers!'
+                                                validPass: 'Must contain minimum 8 characters with atleast 1 number and 1 letter ',
                                             }}
                                         />
                                     </Col>
@@ -155,4 +165,4 @@ class CreateUser extends Component {
     }
 }
  
-export default CreateUser;
+export default CreateGroup;
