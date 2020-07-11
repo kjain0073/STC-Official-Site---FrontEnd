@@ -8,8 +8,9 @@ class AdminHome extends Component {
     
     constructor(props){
         super(props);
+       
         this.state = {
-            isSignedIn: false,
+            isSignedIn: localStorage.getItem('isSignedIn') === "true" ?  true :false,
             route: 'signout',
             signInEmail: '',
             signInPassword: '',
@@ -83,7 +84,7 @@ class AdminHome extends Component {
                     .then(data => {
    
                     if(data.user.email) { 
-                        console.log(data);
+                        // console.log(data); 
                         localStorage.setItem('user',JSON.stringify(data.user))
                         if(data.user.role === 1)
                             {
@@ -125,31 +126,32 @@ class AdminHome extends Component {
         localStorage.setItem('route',JSON.stringify(route));
     }
 
-    hydrateStateWithLocalStorage() {
-        let loggedState = localStorage.getItem('isSignedIn');
-        let currentRoute = localStorage.getItem('route');
-        let userData = localStorage.getItem('user');
-        console.log(loggedState,currentRoute);
-        console.log(userData);
-        if(loggedState === true) {
+    // hydrateStateWithLocalStorage() {
 
-            this.setState({
-                isSignedIn: true,
-                route: currentRoute,
-            })
-        }
-        else
-        {
-            this.setState({
-                isSignedIn: false,
-                route: 'signout',
-            })
-        }
-    }
+    //     // let loggedState = localStorage.getItem('isSignedIn');
+    //     // let currentRoute = localStorage.getItem('route');
+    //     // let userData = localStorage.getItem('user');
+    //     // console.log(loggedState,currentRoute);
+    //     // console.log(userData);
+    //     // if(loggedState === true) {
+
+    //     //     this.setState({
+    //     //         isSignedIn: true,
+    //     //         route: currentRoute,
+    //     //     })
+    //     // }
+    //     // else
+    //     // {
+    //     //     this.setState({
+    //     //         isSignedIn: false,
+    //     //         route: 'signout',
+    //     //     })
+    //     // }
+    // }
 
     componentDidMount(){
         document.head.innerHTML+= '<link id ="bootstrap " href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">' ;
-        this.hydrateStateWithLocalStorage();        
+        // this.hydrateStateWithLocalStorage();        
 
     }
 
